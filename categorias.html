@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css"  rel="stylesheet" />
+    <link rel="stylesheet" href="./public/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body class="bg-h-14 bg-gradient-to-r from-gray-600 to-[#29455C]">
+
+<div class="min-h-full">
+  <nav class="bg-transparent nav">
+    <section class="bg-gray-800">
+    <div class="mx-auto  px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 relative top-3 ">
+            <img class="h-32 w-32" src="./assets/img/pngegg (1).png" alt="Your Company">
+          </div>
+          <div id="menu" class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-4">
+              <a href="./index.html" class="text-gray-300  hover:text-white px-3 py-6 text-sm font-medium  btcategoria pl-[20px] pr-[20px]">Inicio</a>
+              <a href="./categorias.html" class="bg-gray-900 text-white  px-3 py-6 text-sm font-medium btcategoria1 ">Categorias</a>
+              <a href="./productos.html" class="text-gray-300  hover:text-white px-3 py-6 text-sm font-medium  btcategoria ">Productos</a>
+            </div>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-4 flex items-center md:ml-6">
+            <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">View notifications</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+              </svg>
+            </button>
+            <div class="ml-4 flow-root lg:ml-6">
+              <a href="#" class="group -m-2 flex items-center p-2">
+                <svg class="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"></path>
+                </svg>
+                <span class="ml-2 text-sm font-medium text-gray-400 group-hover:text-white">3</span>
+                <span class="sr-only">items in cart, view bag</span>
+              </a>
+            </div>
+            <div class="hidden lg:ml-8 lg:flex">
+              <a href="#" class="flex items-center ">
+                <img src="./assets/img/icons8-colombia-48.png" alt="" class="block h-auto w-5 flex-shrink-0">
+                <span class="ml-3 block text-sm font-medium text-gray-400 group-hover:text-white">COL</span>
+                <span class="sr-only">, change currency</span>
+              </a>
+            </div>
+            <div class="relative">
+              
+              <div class="dropdown dropdown-end mb-30">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar " id="btnuser">
+                  <div class="w-10 rounded-full">
+                    <img id="img1" class="h-32 w-32 rounded-full"  src="data:image/png;base64,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" />
+                  </div>
+                </label>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-[#3c506b] w-52 relative top-[55px] text-white  hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                  <li>
+                    <a class="justify-between">
+                      Perfil
+                      <span class="badge">New</span>
+                    </a>
+                  </li>
+                  <li><a>Cartera</a></li>
+                  <li><a>Configuracion</a></li>
+                  <li><a>Cerrar sesion</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="-mr-2 flex md:hidden">
+    
+          <button type="button" class="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" aria-controls="mobile-menu" aria-expanded="false">
+            <span class="absolute -inset-0.5"></span>
+            <span class="sr-only">Open main menu</span>
+           
+            <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          
+            <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="md:hidden" id="mobile-menu">
+      <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3 mt-[20px]">
+  
+        
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Inicio</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Categoria</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Productos</a>
+        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Reports</a>
+      </div>
+      <div class="border-t border-gray-700 pb-3 pt-4">
+        <div class="flex items-center px-5">
+          <div class="flex-shrink-0">
+            <img class="h-10 w-10 rounded-full" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABIFBMVEX///+OdjHZJy7/voXYFh//+fX/vICIbh3qmJrYGyPZ0b//wIeGaxTu6+T/vYPu39DXDRnxu7yLeDH18+6HdirRyLPXAAzZJCvpg4jNyrOuikqTezuKcyjjf4D66enhYma9mF3aNTuhgkC2VDCkkWC/pIm2qITleXn/xYzrtX/0t33TupmNdCf/6NavaD352NDvsLL/0ar3pXrJTT3/yp25YkDLnWGdhUnDvajSMy/mrnTUp3C1klepXjCxWzKidkKbe0LafXSiZDDaOUXCg2fnbFOciVXWcmb/7Nzzx8jviWXrj3royKD/3sLeyKu1nXCqgzzx3dCkUhmxRxmXbzHMfmu0UivAvam3mXj9wZZ+agDgnJbXYFn3rIqofk/njI7IziqCAAAFCklEQVR4nO3d/VvTVhjGcUIrIaS0NZRms4EJRQhQN2QdOt18mbMyZFM33ZS9/f//xbj2gzx3L57jSXLStHJ/f21S8jH2unKanNO5Ocaq6JptVR9o7poLls0sMWzWrJphoR2QwimOQgqnPwopnP4opLB4iw76aaqF7XrhuotTLQzi+aLVKaSQQgoppJBCCiksWxiXLEzD9CID16VwcX5DVBx43obeM9mJTnQqrMciF8D52LJn6YSETlR5/iEopJBCCimkkEIK3Qm7QVVNSHj9M8vWdixbG9tPBhu+CNVcCj+37TRV2+1EF3Vad2TH8Nd6kcyLlHqDFXfCu75lR/pYZzfxLvKXFpoXLdxGoWeX71A4Sj7+9/5PF4bjQvmBopBCCimkkEIKKZwmYTJDwpVl2damDP/O0U3R/XzCn2GSwWSEqw3R2V4qBi0pnNC7KYxoNKBRWIM5BuGEhL54q2RPHvkuCi3vhRmFUEohhRRSSCGFFFJIYQlCeU2pz/4cFzbVq9nUS/QqEPZaslOduHck++W+DO6+hPt6L5PJCz35pX7D8K1+DcYg+/LE+Kf6XvgWD6oQQiYhtC/fJKGQQgoppJBCCimcJqHhW/0ShA2nQvmd96ZehutS+f539MeCoPSBvJx1KPRufCdLDceg+prDngzP/eYNu161iphMQkx/0sxQcxjp72hbY5lCCimkkEIKKaSQwukUwrW2y+vSxkArySWsDW/aBsDRtszhOTSVCzg2ejINkeTAI9mejMmJ0DYKKaSQQgoppJBCCp1ku+x9zsKBfIq+mHA5X/CM0OuvZK9bluFu+Br8sWKzRpJGrmDm769t2W+2E4Zht+4b+dTRqJAJs31EzlD0vVxUKe5bDnOjh7DbI/nJ26KQQgoppJBCCimksAShrN+BxXNMQlHwSOzWKSa8B3cBigM9782Xsv7Xsse2u72F3QzHvwLHf9l9mpGvTc/IHaxs1IczahDCbp0ngdirbVj+aflM3olaumSLLTcq9bD78PEyCWXnQrFb3SRsiN18CkuIQiUKKaTQYRQqUUghCHHhzLKFPbuiJ3EB4fFQz/kJRWHOsgpvy4VCodrepyLU7tOFFFJIIYUUUkghhZ+E0Fefxx8MLNf5wfWAOr+7EOrAjMJa+sc9tVt67wYSuA2vPQch/o6DARXL7drrsmsrspafSRjKcUaKv09wYPhFix/EsMtfhQ0RWJMX+oc6MT6UG76f74p2zuBhJS+TEA5gbKXbg7Z+PCjUNwxSOcfCIAwO5Wzw4VPx7xSsddRPvYVQVo5Q/IcxC8WWFFJIIYUUUkghhZcJ4VtgKO9VW0dkFIY5rtrCrMJj+PkvWAMoxF8GgxkBf+q/lhf/9Vy0Zjpw2Yk+sIpP5IZ/b2QTYkNxFptDfO1MTjN4aBjowVNBpkFRoA47xt9R3dKpUI5Mom/c/HJz4SikkMLqo5BCCquPwqsolFOKU3xtAEL5bHmF2szCY2gVnu2HOy7//CjbmB0htm2YmwC3lL6dWaHlDcSIQgoppJBCCimkkMKrKQy6lu1E6iQG7zLhCBYL0oHn48NSR0/Bv+u2ffQ8YbZzZsoeAdcXMx44hRRSSCGFFFJI4RUWGmYc5BTGlrUnI+xt6b3NJYyffmHZwSSExiWnDE99GaqXduDWgdC0FCqFFFYWhR+ikMLKovBDFFJYWaOG5QL2B912jrrVC5cgw4br13OV9Tt4xub+A+ajz8i2lgYhAAAAAElFTkSuQmCC" alt="">
+          </div>
+          <div class="ml-3">
+            <div class="text-base font-medium leading-none text-white">Andres Uru</div>
+            <div class="text-sm font-medium leading-none text-gray-400">Uru@example.com</div>
+          </div>
+          <button type="button" class="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+            <span class="absolute -inset-1.5"></span>
+            <span class="sr-only">View notifications</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+            </svg>
+          </button>
+        </div>
+      
+      </div>
+    </div>
+    </section>
+  </nav>
+
+
+
+  <main>
+    <div class="pixel">
+      <div class="cuadron1 cu"></div>
+      <div class="cuadron2 cu"></div>
+      <div class="cuadron3 cu"></div>
+      <div class="cuadron4 cu"></div>
+      <div class="cuadron5 cu"></div>
+      <div class="cuadron7 cu"></div>
+      <div class="cuadron8 cu"></div>
+      <div class="cuadron9 cu"></div>
+      <div class="cuadron10 cu"></div>
+      <div class="cuadron11 cu"></div>
+      <div class="cuadron12 cu"></div>
+      <div class="cuadron13 cu"></div>
+    </div>
+    
+  <div class="categoria1">
+    
+   
+    <div class="relative z-2 lg:hidden" role="dialog" aria-modal="true">
+      
+  
+      <div class="fixed inset-0 bg-black bg-opacity-25"></div>
+
+      <div class="fixed inset-0 z-40 flex">
+   
+      </div>
+    </div>
+
+    <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 bg-[#0e161e] mt-10  mb-10 pt-[0px]">
+      <div class="flex items-baseline justify-between border-b border-gray-200 pt-12">
+        <h1 class="text-4xl font-bold tracking-tight text-white">Filtros</h1>
+
+        <div class="flex items-center">
+          <div class="relative inline-block text-left">
+            
+            <div>
+              <button type="button" class="group inline-flex justify-center text-sm font-medium text-black" id="menu-button" aria-expanded="false" aria-haspopup="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+            <div>
+              <button type="button" class="group inline-flex justify-center text-[15px] font-medium text-gray-400 hover:text-gray-700 mb-2" id="menu-button" aria-expanded="false" aria-haspopup="true">
+                Lo mas popular
+                <svg class="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+     
+          </div>
+          
+
+        </div>
+      </div>
+      
+        
+<form class="buscador">   
+  <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+  <div class="relative">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+      </div>
+      <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="accion, aventura ...." required>
+      <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buscar</button>
+  </div>
+</form>
+
+
+      <section aria-labelledby="products-heading" class="pb-24 pt-6">
+        <h2 id="products-heading" class="sr-only">Products</h2>
+
+        <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+         
+          <form class="hidden lg:block">
+            <h3 class="sr-only">Filtros</h3>
+            <ul role="list" class="space-y-4 border-b border-gray-200 pb-6 text-[20px] font-medium text-white">
+              <li>
+                <input type="button">Historial de Filtros</input>
+              </li>
+              <li>
+                <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"><span class="text-black mr-2">X</span> Un jugador</label>
+              </li>
+              <li>
+                <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"><span class="text-black mr-2">X</span> Estrategia</label>
+              </li>
+              <li>
+                <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"><span class="text-black mr-2">X</span> Juegos gratis</label>
+              </li>
+              <li>
+                <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"><span class="text-black mr-2">X</span> Aventura</label>
+              </li>
+            </ul>
+            <div class="contenedor-acordeon bg-[#111827] text-white">
+              <div class="acordeon bg-[#111827] uno">
+                  <input type="radio" name="acordeon" id="btn-acordeon1" class="btn-acordeon">
+                  <label for="btn-acordeon1">
+                      Precio
+                  </label>
+                  <div class="contenido-acordeon">
+                      <p>Descuento en: <span>5</span></p>
+                     <input type="range" min="10" max="200" value="0" class="range" step="1" />
+                    <div class="w-full flex justify-between text-xs px-2">
+                      <span>$20</span>
+                      <span>$40</span>
+                      <span>$60</span>
+                      <span>$80</span>
+                      <span>$100</span>
+                    </div>
+                  </div>
+              </div>
+              <div class="acordeon bg-[#111827] uno">
+               <input type="radio" name="acordeon" id="btn-acordeon2" class="btn-acordeon">
+               <label for="btn-acordeon2">
+                   Genero
+               </label>
+               <div class="contenido-acordeon ">
+                <div class="form-control ">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Un jugador</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[20px]" checked />
+                  </label>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Multiplayer</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[20px]" checked />
+                  </label>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Aventura</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[33px]" checked />
+                  </label>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Estrategia</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[25px]" checked />
+                  </label>
+                </div>
+               </div>
+               </div>
+               
+               
+               
+           </div>
+           <div class="acordeon bg-[#111827] uno">
+               <input type="radio" name="acordeon" id="btn-acordeon3" class="btn-acordeon border-t-white">
+               <label for="btn-acordeon3">
+                   Sistema operativo
+               </label>
+               <div class="contenido-acordeon dos">
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="label-text">Windows</span> 
+                    <input type="checkbox" class="checkbox ml-20 " />
+                  </label>
+                  <label class="label cursor-pointer">
+                    <span class="label-text">Mac OS</span> 
+                    <input type="checkbox"  class="checkbox ml-[90px]" />
+                  </label>
+                  <label class="label cursor-pointer">
+                    <span class="label-text">Linux/SteamOS</span> 
+                    <input type="checkbox"  class="checkbox ml-5" />
+                  </label>
+                </div>
+               </div>
+           </div>
+           <div class="acordeon bg-[#111827] uno">
+               <input type="radio" name="acordeon" id="btn-acordeon4" class="btn-acordeon">
+               <label for="btn-acordeon4">
+                   Temas
+               </label>
+               <div class="contenido-acordeon">
+                <div class="form-control ">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Fantacia</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[20px]" checked />
+                  </label>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Anime</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[35px]" checked />
+                  </label>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Deporte</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[25px]" checked />
+                  </label>
+                </div>
+                <div class="form-control">
+                  <label class="label cursor-pointer">
+                    <span class="text-[15px]">Guerra</span> 
+                    <input type="radio" name="radio-10" class="radio checked:bg-blue-800 ml-[30px]" checked />
+                  </label>
+                </div>
+               </div>
+           </div>
+          </div>
+        
+          </form>
+
+          <div class=" filtro">
+<div class="bg-gray-700 h-full ">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+    <div class="mx-auto lg:max-w-none lg:py-1 ">
+      <div class="mt-6 space-y-12 lg:space-y-0 ">
+        <div class="group  filtro2 ">
+          <div class="relative h-40 w-[250px] overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-[140px]">
+            <img src="https://cdn-products.eneba.com/resized-products/nT3N3JxA7X2i6N7iUQiBclpxBGccu245Pjdsav85vVY_350x200_1x-0.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
+          </div>
+                        
+              <div class=" bg-[#303949] border border-black rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+                
+                <div class="px-5 ">
+                    <a href="#">
+                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">PAYDAY 3 Pre-Order Edition <span class="text-[#303949]">Aluminium Case, Starlight Spo</span></h5>
+                    </a>
+                    <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Accion</label>
+                    <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Co-op</label>
+                    <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Miltiplayer</label>
+
+                    <div class="flex items-center mt-2.5 mb-5">
+                        <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-gray-200 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                        </svg>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">3.0</span>
+                    </div>
+                    <div class="flex items-center justify-between relative bottom-4">
+                        <span class="text-3xl font-bold text-gray-900 dark:text-white">$158.000</span>
+                        <a href="#" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agrega al carrito</a>
+                    </div>
+                </div>
+              </div>
+        </div>
+       <br>
+       <div class="group  filtro2 ">
+        <div class="relative h-40 w-[250px] overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-[140px]">
+          <img src="https://cdn-products.eneba.com/resized-products/Rbuk-HYO6bwP7fCKfbG6toUgzUyt7EIl2XQySHWOmiw_350x200_1x-0.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
+        </div>
+                      
+            <div class=" bg-[#303949] border border-black rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+              
+              <div class="px-5 ">
+                  <a href="#">
+                      <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">TEKKEN 8 (PC) Steam Key GLOBAL <span class="text-[#303949]">Aluminium Case, Starli</span></h5>
+                  </a>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Lucha</label>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Aventura</label>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Artes marciales</label>
+
+                  <div class="flex items-center mt-2.5 mb-5">
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                  </div>
+                  <div class="flex items-center justify-between relative bottom-4">
+                      <span class="text-3xl font-bold text-gray-900 dark:text-white">$219.000</span>
+                      <a href="#" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agrega al carrito</a>
+                  </div>
+              </div>
+            </div>
+      </div>
+      <br>
+      <div class="group  filtro2 ">
+        <div class="relative h-40 w-[250px] overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-[140px]">
+          <img src="https://cdn-products.eneba.com/resized-products/cD9TDsyAuPA2wlptOpvwn2IVCEen_0v-FnJEHAsr86c_350x200_1x-0.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
+        </div>
+                      
+            <div class=" bg-[#303949] border border-black rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+              
+              <div class="px-5 ">
+                  <a href="#">
+                      <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Cyberpunk 2077: Phantom Liberty (PC) <span class="text-[#303949]">Aluminium Case, St</span></h5>
+                  </a>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Cyberpunk</label>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Futurista</label>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]">Accion</label>
+
+                  <div class="flex items-center mt-2.5 mb-5">
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">4.0</span>
+                  </div>
+                  <div class="flex items-center justify-between relative bottom-4">
+                      <span class="text-3xl font-bold text-gray-900 dark:text-white">$129.000</span>
+                      <a href="#" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agrega al carrito</a>
+                  </div>
+              </div>
+            </div>
+      </div>
+      <br>
+      <div class="group  filtro2 ">
+        <div class="relative h-40 w-[250px] overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-[140px]">
+          <img src="https://cdn-products.eneba.com/resized-products/3oAoBB--byY83zfMLoB4iFxNV3e-zyTjTfPuIIBEHBI_350x200_1x-0.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="h-full w-full object-cover object-center">
+        </div>
+                      
+            <div class=" bg-[#303949] border border-black rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+              
+              <div class="px-5 ">
+                  <a href="#">
+                      <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Mortal Kombat 1 (PC). <span class="text-[#303949]">Aluminium Case, Starlight Spodddss</span></h5>
+                  </a>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"> Combate</label>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"> Fantacia</label>
+                  <label for="" class="text-gray-300  hover:text-blue-950 px-1 py-2 text-sm font-medium bg-[#3E4F61] pl-[20px] pr-[20px]"> Gore</label>
+
+                  <div class="flex items-center mt-2.5 mb-5">
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <svg class="w-4 h-4 text-yellow-300 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                      </svg>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                  </div>
+                  <div class="flex items-center justify-between relative bottom-4">
+                      <span class="text-3xl font-bold text-gray-900 dark:text-white">$180.000</span>
+                      <a href="#" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agrega al carrito</a>
+                  </div>
+              </div>
+            </div>
+      </div>
+
+        </div>
+           
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      
+        </div>
+      
+      </section>
+    </main>
+  </div>
+</div>
+
+
+  </main>
+  <footer class="bg-[#1a2a40] dark:bg-gray-900 ">
+    <div class="mx-auto ">
+      <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4 md:flex md:justify-around ">
+        <div>
+            <h2 class="mb-6 text-sm font-semibold uppercase text-white">Compañia</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <li class="mb-4">
+                    <a href="#" class=" hover:underline">Quienes somos</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Carrera</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Blog</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="mb-6 text-sm font-semibold text-white uppercase ">Centro de atención</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Discord</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">X</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Facebook</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Contactanos</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="mb-6 text-sm font-semibold  uppercase text-white">Legal</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Politica de privacidad</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Licensia</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Terminos y condiciones</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="mb-6 text-sm font-semibold  uppercase text-white">Descarga</h2>
+            <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">iOS</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Android</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">Windows</a>
+                </li>
+                <li class="mb-4">
+                    <a href="#" class="hover:underline">MacOS</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="px-4 py-6 bg-[#05080b] dark:bg-gray-700 md:flex md:items-center md:justify-between ">
+        <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">© 2023 <a href="https://flowbite.com/">Press Start™</a>. Todos los derechos reservados.
+        </span>
+        <div class="flex mt-4 space-x-5 sm:justify-center md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-gray-200 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+                    </svg>
+                  <span class="sr-only">Facebook page</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-200 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                    </svg>
+                  <span class="sr-only">Discord community</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-200 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                    <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
+                </svg>
+                  <span class="sr-only">Twitter page</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-200 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="sr-only">GitHub account</span>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-gray-200 dark:hover:text-white">
+                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
+                </svg>
+                  <span class="sr-only">Dribbble account</span>
+              </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+ 
+</body>
+</html>
